@@ -1,0 +1,60 @@
+/* Reset styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url("/static/images/7.jpg") no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+}
+
+/* Container to center content */
+.container {
+    background: rgba(0, 0, 0, 0.7); /* Dark overlay */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
+    text-align: center;
+}
+
+/* Heading style */
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Button styles */
+button {
+    font-size: 20px;
+    padding: 15px 30px;
+    margin: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Day button */
+.day-btn {
+    background-color: #ffcc00;
+    color: black;
+}
+
+.day-btn:hover {
+    background-color: #ffdb4d;
+}
+
+/* Night button */
+.night-btn {
+    background-color: #4444ff;
+    color: white;
+}
+
+.night-btn:hover {
+    background-color: #6666ff;
+}

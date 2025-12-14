@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Music Recommendations System</title>
+
+	
+	
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style4.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body >
+
+	 
+	<div class="container-fluid bg-dark">
+    
+		<nav class="navbar navbar-dark bg-dark navbar-expand-lg ">
+			<div class="container-fluid">
+			  <a class="navbar-brand" href="#">Music Recommendations System  </a>
+			  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			  </button>
+			  <div class="justify-content-end mx-5" >
+			  <div class="collapse navbar-collapse " id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+				   <li class="nav-item mx-2" >
+					<a class="nav-link active" aria-current="page" href="">Home</a>
+				  </li>
+			   
+				  <li class="nav-item mx-2">
+					<a class="nav-link" href="{{url_for('song')}}">Recommendations Song </a>
+				  </li>
+
+				
+ <li class="nav-item mx-2">
+                    <a class="nav-link" href="{{url_for('pradip')}}">Text recommendation</a>
+                    </li>
+                 
+                  <li class="nav-item mx-2">
+                    <a class="nav-link" href="{{url_for('test')}}">About</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                      <a class="nav-link" href="{{ url_for('activity') }}"> Activity</a>
+                  </li>
+
+				  <li class="nav-item mx-2">
+					<a class="nav-link" href="{{url_for('logout')}}">Logout</a>
+				  </li>
+				</ul>
+			</div>
+			  </div>
+			</div>
+		  </nav>
+		  </div>
+		 
+		  <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+   <script src="{{ url_for('static', filename='js/popper.js') }}"></script>
+   <script src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
+   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+		
+</body>
+</html>

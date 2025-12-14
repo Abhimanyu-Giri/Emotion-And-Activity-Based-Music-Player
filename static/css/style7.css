@@ -1,0 +1,106 @@
+/* Set body background and font globally */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    font-family: 'Arial', sans-serif;
+    background: url("../images/1.jpg") no-repeat center center/cover;
+    background-size: cover;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Navbar fix - ensure text remains visible */
+.navbar {
+    background-color: rgba(0, 0, 0, 0.8) !important;
+}
+
+.navbar .nav-link, .navbar-brand {
+    color: white !important;
+}
+
+.navbar .nav-link:hover {
+    color: #ff9900 !important;
+}
+
+/* Stylish glassmorphism container */
+.container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+    max-width: 500px;
+    width: 90%;
+    margin: 50px auto;
+    animation: fadeIn 1s ease-in-out;
+    text-align: center;
+}
+
+/* Heading */
+h2 {
+    font-size: 26px;
+    margin-bottom: 20px;
+    color: #ffffff;
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.6);
+}
+
+/* Labels */
+label {
+    font-size: 18px;
+    font-weight: bold;
+    display: block;
+    margin-top: 15px;
+}
+
+/* Dropdown Styling */
+select {
+    width: 80%;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    margin-top: 5px;
+    background-color: #ffffff;
+    color: #000;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+select:focus {
+    box-shadow: 0 0 5px #ff9900;
+}
+
+/* Button */
+button {
+    padding: 12px 24px;
+    background-color: #ff9900;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #ffb84d;
+    transform: translateY(-2px);
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

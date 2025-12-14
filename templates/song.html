@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select a Song</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style7.css') }}">
+    
+	
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+   
+  
+</head>
+<body>
+
+	 
+
+    <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Music Recommendations System</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+      
+          <!-- Main nav items here -->
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0"> <!-- ms-auto = push to right -->
+              <li class="nav-item mx-2">
+                <a class="nav-link active" aria-current="page" href="{{ url_for('home') }}">Home</a>
+              </li>
+              
+              <li class="nav-item mx-2">
+                <a class="nav-link" href="{{ url_for('test') }}">About</a>
+              </li>
+              <li class="nav-item mx-2">
+                <a class="nav-link" href="{{ url_for('activity') }}">Activity</a>
+              </li>
+              <li class="nav-item mx-2">
+                <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      
+		 
+    <div class="container">
+        <h2>🎵 Select Time & Song 🎵</h2>
+
+        <form action="/predict" method="POST">
+            <label for="time_period">Select Time:</label>
+            <select id="time_period" name="time_period" required onchange="loadSongs()">
+                <option value="">-- Select --</option>
+                <option value="Day">🌞 Day</option>
+                <option value="Night">🌙 Night</option>
+            </select>
+
+            <br><br>
+
+            <label for="song">Select Song:</label>
+            <select id="song" name="song" required>
+                <option value="">-- Select a Song --</option>
+            </select>
+
+            <br><br>
+            <button type="submit">🎶 Play Song</button>
+        </form>
+    </div>
+
+    <script>
+        function loadSongs() {
+            let timePeriod = document.getElementById("time_period").value;
+            let songDropdown = document.getElementById("song");
+
+            fetch(`/get_songs?time_period=${timePeriod}`)
+                .then(response => response.json())
+                .then(data => {
+                    songDropdown.innerHTML = '<option value="">-- Select a Song --</option>';
+                    data.songs.forEach(song => {
+                        let option = document.createElement("option");
+                        option.value = song;
+                        option.textContent = song;
+                        songDropdown.appendChild(option);
+                    });
+                });
+        }
+    </script>
+
+    <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/popper.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+         
+</body>
+</html>

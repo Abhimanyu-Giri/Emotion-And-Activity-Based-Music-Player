@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Music Player</title>
+    <style>
+        body {
+            background: #1e1e2f;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        textarea {
+            width: 300px;
+            height: 100px;
+            padding: 10px;
+            background: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        button {
+            background: #00c853;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        iframe {
+            margin-top: 30px;
+            border: none;
+            width: 560px;
+            height: 315px;
+        }
+        #mood {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎵 Text Music Player</h1>
+    <textarea id="text" placeholder="Type how you feel..."></textarea><br>
+    <button onclick="getSong()">Play Song</button>
+    <div id="mood"></div>
+    <div id="player-container"></div>
+
+    <script>
+        function getSong() {
+            const userText = document.getElementById("text").value;
+            fetch("/get_song", {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({text: userText})
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("mood").innerText = "Mood detected: " + data.mood;
+                document.getElementById("player-container").innerHTML =
+                    `<iframe src="https://www.youtube.com/embed/${data.video_id}?autoplay=1"
+                              allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
+            });
+        }
+    </script>
+</body>
+</html>
